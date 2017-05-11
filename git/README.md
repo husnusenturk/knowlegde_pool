@@ -25,3 +25,8 @@ All this parameters are preserved in c:\Users\<username>\.gitconfig file. You ca
 
 Compare local git repository and remote repository: `git status`  
 Send changes to remote repository:  `git push`  
+
+
+TODO:  
+* work with two remote git repository.
+* Create remote repo with commands.
