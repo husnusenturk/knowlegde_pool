@@ -26,7 +26,16 @@ All this parameters are preserved in c:\Users\<username>\.gitconfig file. You ca
 Compare local git repository and remote repository: `git status`  
 Send changes to remote repository:  `git push`  
 
+Create a new remote repository on the command line
+* Create a directory to contain the project: `mkdir <repositoryname>`
+* Go into the new directory: `cd <repositoryname>`  
+* Create readme file: `echo "#  <repositoryname>" >> README.md`
+* Create an empty Git repository or reinitialize an existing one: `git init`  
+* Add file contents to the index: `git add README.md`  
+* Record changes to the repository: `git commit -m "first commit"`
+* To add a new remote Git repository: `git remote add origin https://github.com/husnusenturk/<repositoryname>.git`  
+* Updates remote refs using local refs: `git push -u origin master`
 
-TODO:  
-* work with two remote git repository.
-* Create remote repo with commands.
+Working with two remote git servers
+* If your username, email, or other configurations is different for two git servers, You should change .gitconfig file according to server which you will work with.
+
