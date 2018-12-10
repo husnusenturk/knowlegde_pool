@@ -2,6 +2,7 @@ Setup your user name for github account: `git config --global user.name "usernam
 Setup your e-mail id for github account: `git config --global user.email john@doo.com`  
 Getting git to work with a proxy server: `git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080`  
 Check the currently set proxy: `git config --global --get http.proxy`  
+List all global settings: `git config --global --list` 
 Reset proxy and work without proxy: `git config --global --unset http.proxy`  
 
 How to clone repository from github to local computer:
