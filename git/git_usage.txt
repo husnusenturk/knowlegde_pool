@@ -240,6 +240,31 @@ d:\projects\git\test>git branch -a
   remotes/origin/master
   
   
+- Lokal bir branch'i silmek. Silmek istediğiniz branch'te olmamalısınız.
+git branch -d BRANCH-TO-DELETE
+
+- Remote bir branch'i silmek için "git push origin --delete <branch_ismi>
+
+d:\projects\git\test>git branch -a
+* development
+  master
+  remotes/origin/development
+  remotes/origin/feature_branch
+  remotes/origin/feature_branch_renamed
+  remotes/origin/master
+
+d:\projects\git\test>git push origin --delete feature_branch_renamed
+fatal: NullReferenceException encountered.
+   Object reference not set to an instance of an object.
+Username for 'https://git.hsenturk.com.tr': hsenturk
+Password for 'https://hsenturk@git.mkk.com.tr':
+fatal: NullReferenceException encountered.
+   Object reference not set to an instance of an object.
+remote: . Processing 1 references
+remote: Processed 1 references in total
+To https://git.hsenturk.com.tr/hsenturk/test.git
+ - [deleted]         feature_branch_renamed
+
 
 
 - Bir dosyada yapılan unstaged değişiklikleri geri almak için 
