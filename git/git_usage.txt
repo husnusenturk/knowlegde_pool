@@ -38,3 +38,57 @@ warning: You appear to have cloned an empty repository.
 		No commits yet
 
 		nothing to commit (create/copy files and use "git add" to track)
+
+- Lokalde test klasörü içersinde 2 adet dosya oluşturdum.
+	testfile1.txt
+	testfile2.txt
+	
+- Bunları tek bir dosya ismi belirterek staged duruma almak için aşağıdaki komut kullanılabilir.
+	git add <file or directory name>
+veya gid add . komutuyla bütün yeni dosyalar staged duruma çekilebilir. 
+git add . komutu çalıştırıldıktan sonra git status komutuyla kontrol edildiğinde aşağıdaki çıktı ile karşılaşılır:
+
+
+d:\projects\git\test>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   testfile1.txt
+        new file:   testfile2.txt
+
+- Eğer staged durumdaki dosyaları geri çekmek istersek git reset komutunu kullanabiliriz.
+
+d:\projects\git\test>git reset
+
+d:\projects\git\test>git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        testfile1.txt
+        testfile2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+- Kaldığımız yerden devam edersek dosyaları eklemek için sırasıyla "git add ." ve git commit -m "2 dosya eklendi" komutları çalıştırılabilir.
+
+d:\projects\git\test>git commit -m "2 dosya eklendi"
+[master (root-commit) 72137d7] 2 dosya eklendi
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 testfile1.txt
+ create mode 100644 testfile2.txt
+ 
+ - Dosyaların içersine master ifadesini yazdım ve bu değişiklikler için de git add . ve git commit komutlarını kullandım.
+ 
+ d:\projects\git\test>git add .
+
+d:\projects\git\test>git commit -m "dosyalara master yazdım."
+[master cdbd3a4] dosyalara master yazdım.
+ 2 files changed, 2 insertions(+)
