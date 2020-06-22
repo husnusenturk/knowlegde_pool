@@ -191,6 +191,44 @@ Switched to branch 'master'
 Your branch is ahead of 'origin/master' by 1 commit.
   (use "git push" to publish your local commits)
 
+- lokalde oluşturulan yeni bir branch'in remote'a commit'lenmesi "git push -u origin development"
+
+d:\projects\git\test>git push -u origin development
+fatal: NullReferenceException encountered.
+   Object reference not set to an instance of an object.
+Username for 'https://git.hsenturk.com.tr': hsenturk
+Password for 'https://hsenturk@git.hsenturk.com.tr':
+fatal: NullReferenceException encountered.
+   Object reference not set to an instance of an object.
+Enumerating objects: 10, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 651 bytes | 325.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a new pull request for 'development':
+remote:   https://git.hsenturk.com.tr/hsenturk/test/compare/master...development
+remote:
+remote: . Processing 1 references
+remote: Processed 1 references in total
+To https://git.hsenturk.com.tr/hsenturk/test.git
+ * [new branch]      development -> development
+Branch 'development' set up to track remote branch 'development' from 'origin'.
+
+- lokal'de master'dan farklı bir branch'ten branch oluşturmak: master'dan branch oluşturmaktan farklı değildir. Öncelikle git checkout <branch_ismi> komutuyla yeni branch oluşturacağımız branch'e switch edilir. Sonrasında git checkout -b <yeni_branch_ismi> konutu çalıştırılır.
+
+d:\projects\git\test>git checkout -b feature_branch
+Switched to a new branch 'feature_branch'
+
+d:\projects\git\test>git branch -a
+  development
+* feature_branch
+  master
+  remotes/origin/development
+  remotes/origin/master
+
+
 
 
 - Bir dosyada yapılan unstaged değişiklikleri geri almak için 
