@@ -92,3 +92,41 @@ d:\projects\git\test>git commit -m "2 dosya eklendi"
 d:\projects\git\test>git commit -m "dosyalara master yazdım."
 [master cdbd3a4] dosyalara master yazdım.
  2 files changed, 2 insertions(+)
+
+- Eklenen 2 dosya remote'ta yok. Git push komutuyla bu dosyalar origin/master'a gönderilir.
+
+d:\projects\git\test>git push
+fatal: NullReferenceException encountered.
+   Object reference not set to an instance of an object.
+Username for 'https://git.hsenturk.com.tr': hsenturk
+Password for 'https://hsenturk@git.hsenturk.com.tr':
+fatal: NullReferenceException encountered.
+   Object reference not set to an instance of an object.
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 464 bytes | 154.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+remote: . Processing 1 references
+remote: Processed 1 references in total
+To https://git.hsenturk.com.tr/hsenturk/test.git
+ * [new branch]      master -> master
+
+- Lokaldeki bir dosyada değişiklik yaptıktan sonra lokaldeki dosyalarla remote'takinin farkını görmek:
+
+d:\projects\git\test>git commit -m "testfile1.txt degistirildi"
+[master 45e6a7b] testfile1.txt degistirildi
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+d:\projects\git\test>git diff master origin/master
+diff --git a/testfile1.txt b/testfile1.txt
+index 9b02ef1..8b25206 100644
+--- a/testfile1.txt
++++ b/testfile1.txt
+@@ -1,2 +1 @@
+-master
+-master degisiklik
+\ No newline at end of file
++master
+\ No newline at end of file
