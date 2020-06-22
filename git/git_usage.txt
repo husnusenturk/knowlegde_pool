@@ -228,7 +228,18 @@ d:\projects\git\test>git branch -a
   remotes/origin/development
   remotes/origin/master
 
+- Bir branch'in ismini değiştirmek
 
+d:\projects\git\test>git branch -m feature_branch feature_branch_renamed
+
+d:\projects\git\test>git branch -a
+* development
+  feature_branch_renamed
+  master
+  remotes/origin/development
+  remotes/origin/master
+  
+  
 
 
 - Bir dosyada yapılan unstaged değişiklikleri geri almak için 
