@@ -47,27 +47,4 @@ sonuç: "<name>RaporDS</name>" satırı silindi.
   </jdbc-system-resource>
 
 
-deneme3:
-
-Orjinal dosya:
-
-  <jdbc-system-resource>
-    <name>RaporDS</name>
-    <target>cluster</target>
-    <descriptor-file-name>jdbc/RaporDS-7707-jdbc.xml</descriptor-file-name>
-  </jdbc-system-resource>
-
-çalıştırılan komut: -i yerine -i.bak yazılırsa dosyanın önceki hali yedekleniyor.
-
-sed -i '/<name>RaporDS<\/name>/N;s/<target>cluster<\/target>/<target><\/target>/g' test.xml
-sed -i.bak '/<name>RaporDS<\/name>/N;s/<target>cluster<\/target>/<target><\/target>/g' test.xml
-
-sonuç:
-
-  <jdbc-ystem-resource>
-    <name>RaporDS</name>
-    <target></target>
-    <descriptor-file-name>jdbc/RaporDS-7707-jdbc.xml</descriptor-file-name>
-  </jdbc-system-resource>
-
 
