@@ -1,0 +1,2 @@
+proxy üzerinden sayfa erişim testi:
+curl -x http://prox_server_vpn:8080/ -I https://www.google.com
