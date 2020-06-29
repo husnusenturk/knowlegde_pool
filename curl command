@@ -1,2 +1,6 @@
 proxy üzerinden sayfa erişim testi:
 curl -x http://prox_server_vpn:8080/ -I https://www.google.com
+
+
+Eğer sertifika issuer tanınmıyorsa ve sayfa test edilecekse "curl: (60) Peer's Certificate issuer is not recognized." hatasını aşmak için k parametresi kullanılabilir:
+curl -Ik https://www.google.com
