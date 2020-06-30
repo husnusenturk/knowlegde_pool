@@ -1,0 +1,70 @@
+How to list Artifactory artifacts and use in Jenkins as parameter:
+
+1- Create groovy script in Jenkins:
+
+Sample1:
+Id: ListArtifactVersions.groovy
+Name: ListArtifactVersions
+Comment: Returns last N versions of an artifact found in Artifactory
+Allow usage in build step	 {ticked}
+
+Parameters:
+- repository
+- groupId
+- artifactId
+- itemCount
+- versionfilter
+
+Script:
+
+import groovy.json.JsonSlurper
+
+// testler:
+// curl Test: curl -X GET http://www.artifactory.com.tr/artifactory/api/search/versions?g=<groupId>&a=<artifactId>&repos=int-release-local
+// Test URL: http://www.artifactory.com.tr/artifactory/api/search/versions?g=<groupId>&a=<artifactId>&repos=int-release-local
+
+// onceki hali:
+//def versionsJson= new URL("https://www.artifactory.com.tr/artifactory/api/search/versions?g=${groupId}&a=${artifactId}&repos=${repository}").getText()
+//def versions = new JsonSlurper().parseText(versionsJson).results.take("$itemCount".toInteger()).version
+
+// curl ile kullanici adi ve settings.xml icin jenkins sifresinin gizli hali ile calisan komut. sifre acik halde de calisiyor.
+def versionsJson= "curl -u <username>:<encrypted_password> --insecure -X GET https://www.artifactory.com.tr/artifactory/api/search/versions?g=${groupId}&a=${artifactId}&repos=${repository}".execute().text
+def versions = new JsonSlurper().parseText(versionsJson).results.take("$itemCount".toInteger()).version
+
+Sample2:
+Id: ListArtifactVersionsFilterByVersion.groovy
+Name: ListArtifactVersionsFilterByVersion
+Comment: Returns last N versions of an artifact found in Artifactory. You can filter results by using versionfilter. If you define versionfilter= 0.0.1*, returns artifacts start with 0.0.1
+Allow usage in build step	 {ticked}
+
+Parameters:
+- repository
+- groupId
+- artifactId
+- itemCount
+- versionfilter
+
+Script:
+import groovy.json.JsonSlurper
+
+// testler:
+// curl Test: curl -X GET http://www.artifactory.com.tr/artifactory/api/search/versions?g=<groupId>&a=<artifactId>&repos=int-release-local
+// Test URL: http://www.artifactory.com.tr/artifactory/api/search/versions?g=<groupId>&a=<artifactId>&repos=int-release-local
+
+// onceki hali:
+//def versionsJson= new URL("https://www.artifactory.com.tr/artifactory/api/search/versions?g=${groupId}&a=${artifactId}&repos=${repository}").getText()
+//def versions = new JsonSlurper().parseText(versionsJson).results.take("$itemCount".toInteger()).version
+
+// curl ile kullanici adi ve settings.xml icin jenkins sifresinin gizli hali ile calisan komut. sifre acik halde de calisiyor.
+def versionsJson= "curl -u <username>:<encrypted_password> --insecure -X GET https://www.artifactory.com.tr/artifactory/api/search/versions?g=${groupId}&a=${artifactId}&repos=${repository}&v=${versionfilter}".execute().text
+def versions = new JsonSlurper().parseText(versionsJson).results.take("$itemCount".toInteger()).version
+
+2- In Jenkins Job select "This project is parameterized"
+3- Enable "Dynamic choice parameter (script'ler)
+  Name: VERSION
+  Script: Select one of created script
+  Parameters: Which your script need to run
+  
+  
+  
+  
