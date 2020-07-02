@@ -1,0 +1,32 @@
+How to configure .git.config for support multiple git server?
+
+[http]
+                sslVerify = false
+[http "https://github.com"]
+                proxy = http://proxy.com.tr:8080
+[http "https://www.github.com"]
+                proxy = http://proxy.com.tr:8080
+[http "https://gitlab.com"]
+                proxy = http://proxy.com.tr:8080
+[http "https://www.gitlab.com"]
+                proxy = http://proxy.com.tr:8080
+[user "https://www.github.com"]
+                name = husnusenturk
+                email = husnusenturk@yahoo.com
+[user "https://www.gitlab.com"]
+                name = husnusenturk
+                email = husnusenturk@yahoo.com  
+[credential "github.com"]
+                useHttpPath = true
+[credential "gitlab.com"]
+                useHttpPath = true
+[credential]
+                helper = store
+[user]
+                name = hsenturk
+                email = husnu.senturk@test.com.tr
+[filter "lfs"]
+                clean = git-lfs clean -- %f
+                smudge = git-lfs smudge -- %f
+                process = git-lfs filter-process
+                required = true 
